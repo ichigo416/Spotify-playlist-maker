@@ -4,6 +4,7 @@ import session from "express-session";
 import MongoStore from "connect-mongo";
 import authRoutes from "./routes/authRoutes.js";
 import profileRoutes from "./routes/profileRoutes.js";
+import recommendationRoutes from "./routes/recommendationRoutes.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
 const app = express();
@@ -39,8 +40,8 @@ app.get("/api/health", (req, res) => {
 
 app.use("/api/auth", authRoutes);
 app.use("/api/profile", profileRoutes);
+app.use("/api/recommendations", recommendationRoutes);
 
-// Day 3 adds: app.use("/api/recommendations", recommendationRoutes);
 // Day 4 adds: app.use("/api/playlists", playlistRoutes);
 
 app.use(errorHandler);
